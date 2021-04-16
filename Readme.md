@@ -83,3 +83,9 @@ pip install flask==1.1.2
 ## 1.2 版本
 
  实现单例 避免 写了多个文件重复启动app 浪费时间
+ 
+ ## 如果您觉得这个产品对您有用，您可以捐助下我，让我有理由继续下去，非常感谢。
+ ![image-20210416142640447](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210416142640.png)
+ ![image-20210416142702965](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210416142703.png)
+ 
+ ## 当然你也可以关注加星支持 非常感谢！！！
