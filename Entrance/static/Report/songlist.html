@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title>songlist</title>
+    
+    <!--[if lt IE 9]>
+    <script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="http://10.10.10.119:5000/static/AirResource/css/report.css" rel="stylesheet">
+
+    <script src="http://10.10.10.119:5000/static/AirResource/js/jquery-1.10.2.min.js"></script>
+    <script src="http://10.10.10.119:5000/static/AirResource/js/jquery-lang.js" charset="utf-8" type="text/javascript"></script>
+    <script src="http://10.10.10.119:5000/static/AirResource/js/langpack/zh_CN.js" charset="utf-8" type="text/javascript"></script>
+    <script src="http://10.10.10.119:5000/static/AirResource/js/lazyload.js" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript">
+      data = {"steps": [{"title": "record_ui", "time": 1617331487.4580023, "code": {"name": "record_ui", "args": [{"key": "driver", "value": "{poco.drivers.android.uiautomation.AndroidUiautomationPoco object at 0x0000025D7C1E5E10}"}, {"key": "action", "value": "'click'"}, {"key": "ui", "value": "UIObjectProxy of \"text=\u6b4c\u5355\""}, {"key": "args", "value": "[0.4740740740740741, 0.37222222222222223]"}]}, "screen": null, "desc": null, "traceback": "", "log": "", "assert": null}, {"title": "Touch", "time": 1617331488.280928, "code": {"name": "touch", "args": [{"key": "v", "value": [512.0, 871.0]}, {"key": "kwargs", "value": {"duration": 0.01}}, {"key": "times", "value": 1}]}, "screen": {"src": "http://10.10.10.119:5000/static\\Logs\\songlist\\1617331487579.jpg", "rect": [], "pos": [[512.0, 871.0]], "vector": [], "confidence": null, "resolution": [1080, 2340], "_filepath": "http://10.10.10.119:5000/static\\Logs\\songlist\\1617331487579.jpg", "thumbnail": "http://10.10.10.119:5000/static\\Logs\\songlist\\1617331487579_small.jpg"}, "desc": "Touch coordinates [512.0, 871.0]", "traceback": "", "log": "", "assert": null}, {"title": "Assert equal", "time": 1617331490.2485468, "code": {"name": "assert_equal", "args": [{"key": "first", "value": true}, {"key": "second", "value": true}, {"key": "msg", "value": "\u5224\u65ad\u662f\u5426\u8fdb\u5165\u6b4c\u5355\u9875\u9762"}]}, "screen": null, "desc": null, "traceback": "", "log": "", "assert": "\u5224\u65ad\u662f\u5426\u8fdb\u5165\u6b4c\u5355\u9875\u9762"}], "name": "D:\\Pycharm\\AutoTest\\TestCase", "scale": 0.5, "test_result": true, "run_end": 1617331490.2485468, "run_start": 1617331487.4580023, "static_root": "http://10.10.10.119:5000/static/AirResource/", "lang": "en", "records": [], "info": {"name": "TestFinds.py", "path": "D:\\Pycharm\\AutoTest\\TestCase\\TestFinds.py", "author": "\u674e\u56db", "title": "songlist", "desc": "\u6d4b\u8bd5\u6b4c\u5355"}, "log": "..\\Logs\\songlist\\log.txt", "console": ""};
+      lang = new Lang();
+      lang.init({
+        defaultLang: 'en',
+        currentLang: 'en'
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div id="main" class="main col-md-12">
+          <div id="back_multi"></div>
+          <h1 class="title">songlist</h1>
+          
+          <div class="summary" >
+
+            <div class="show-vertical">
+              <div class="info info1">
+                <div class="info-left">
+                  <img id='result-img' />
+                </div>
+                <div class="info-right">
+                  <div class="info-title"><span lang='en'>Test Result</span>
+                    <label id='result-desc' lang="en"></label>
+                  </div>
+                  <div class="info-content">
+                    <div class='info-sub start'></div>
+                    <div class='info-sub time'></div>
+                  </div>
+                  <div class="info-toal">
+                    <div class="info-step">
+                      <span class="info-name" lang="en">Steps: </span>
+                      <span class="info-value">3</span>
+                    </div>
+                    <div class="info-time">
+                      <span class="info-name" lang="en">Time: </span>
+                      <span class="info-value duration">xxx</span>
+                    </div>
+                    
+                    
+                    <div class="info-log">
+                      <span class="info-name" lang="en">Log: </span>
+                      <span class="info-value log">
+                        <a href="..\Logs\songlist\log.txt" target="_blank" download="log.txt">log.txt <img src="http://10.10.10.119:5000/static/AirResource/image/download_log.svg" /></a>
+                      </span>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="info info2">
+                <div class="info-left"></div>
+                <div class="info-right">
+                  <div class="info-title"><span lang='en'>Executors</span></div>
+                  <div class="info-content">
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      
+                        <div class="info-name"><span lang="en">Author:</span> 李四</div>
+                      
+                    </div>
+                    <div class="info-execute">
+                      <div class="circle-img"></div>
+                      <div class="info-file" title="D:\Pycharm\AutoTest\TestCase\TestFinds.py"> <span lang="en">File Name:</span> TestFinds.py
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="info info3">
+              <div class="info-title" lang="en">Description:</div>
+              <div class="airdesc-wrap">
+                  <div class="airdesc">
+                    <div class="desc-content">测试歌单</div>
+                    <div class="show-more"></div>
+                  </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="device" id='device'>
+          </div>
+          <!-- 可以额外显示自定义模块，支持插入Html内容 -->
+          
+          <div class="gallery">
+            <div class="info-title"><span lang="en">Quick view</span></div>
+            <div class="content">
+            </div>
+          </div>
+
+          <!--单步-->
+          
+          
+          <div class="steps">
+            <div class="content">
+              <div class="steps-head">
+                <div class="head-left">
+                  <div class="order" id='order'><span lang="en">order</span></div>
+                  <div class="order" id='duration'><span lang="en">duration</span></div>
+                  <div class="order" id='status'><span lang="en">status</span></div>
+                </div>
+                <div class="head-right">
+                  <span lang="en" class="jump-wrong" id='jump-wrong'>Jump to wrong step</span>
+                  <span lang="en">Filter by:</span>
+                  <span class="filters">
+                    <span lang="en" class="filter" id="all" alt="show all steps">All</span>
+                    <span lang="en" class="filter" id='success' alt="show success steps only">Success</span>
+                    <span lang="en" class="filter" id='fail' alt="show failed steps only">Failed</span>
+                    <span lang="en" class="filter" id="assert" alt="show steps with assertion only">Assert</span>
+                  </span>
+                </div>
+              </div>
+              <div class="steps-content">
+                <div class="step-left" id='step-left'>
+                  <div class="step-list"></div>
+                  <div id="pageTool"></div>
+                </div>
+                <div class="step-right" id='step-right'></div>
+              </div>
+            </div>
+            
+            </div>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- 录屏 -->
+      <div class="row gif-wrap show">
+          <div class="menu">
+            <div class="pattern pattern1">
+              <div class="minimize">
+                <img title="minimize" src="http://10.10.10.119:5000/static/AirResource/image/minimize.svg" />
+              </div>
+              <div class="close">
+                <img title="close" src="http://10.10.10.119:5000/static/AirResource/image/close.svg" />
+              </div>
+            </div>
+            <div class="pattern pattern2">
+              <div class="maximize">
+                <img title="maximize" src="http://10.10.10.119:5000/static/AirResource/image/maximize.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+        </div>
+        <!-- max pic -->
+      <div id='magnify' class="mask hide">
+        <div class="content">
+        </div>
+      </div>
+    </div>
+
+  <link href="http://10.10.10.119:5000/static/AirResource/css/monokai_sublime.min.css" rel="stylesheet">
+  <script src="http://10.10.10.119:5000/static/AirResource/js/highlight.min.js"></script>
+  <script type="text/javascript" src="http://10.10.10.119:5000/static/AirResource/js/paging.js"></script>
+  <script src="http://10.10.10.119:5000/static/AirResource/js/report.js"></script>
+</body>
+</html>

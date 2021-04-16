@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动化测试平台</title>
+ 	<style type="text/css">
+/*  去掉标签默认的间距   */
+body,ul,ol,p,h1,h2,h3,h4,h4,h6,dl,dd,select,input,form{
+	margin:0;
+	padding:0;
+}
+/*  去掉小圆点以及数字   */
+ul,ol{
+	list-style:none;
+}
+/* 去掉下划线 */
+a{text-decoration:none;}
+
+/* 去掉斜体 */
+em{
+	font-style:normal;
+}
+/* 让h标签继承body的文字设置 */
+h1,h2,h3,h4,h4,h6{
+	font-size:100%;
+	font-weight:normal;
+}
+/* 在IE下去掉图片做链接时生成的框线 */
+img{
+	border:0px;
+}
+
+/* 清除浮动以及清除margin-top塌陷 */
+.clearfix:before,.clearfix:after{
+	content:'';
+	display:table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+	zoom:1;
+}
+
+
+.fl{
+	float:left;
+}
+
+.fr{
+	float:right;
+}
+		body{
+	background:#f1f2f6;
+	font-family:'Microsoft YaHei';
+}
+
+.login_logo{
+	background:rgba(47,64,80,0.4);
+	/*height:45px;*/
+}
+
+.login_logo img{
+	margin:5px 0 0 10px;
+}
+
+.user_info img{
+	display:block;
+	margin:20px auto 0;
+	width:68px;
+	height:68px;
+	border-radius:34px;
+}
+
+.user_info p{
+	text-align:center;
+	font-size:14px;
+	color:#bdcbd8;
+	margin:10px auto;
+}
+
+.user_info em{
+	font-weight:bold;
+	color:#1ab394;
+}
+
+.menu_con a{
+	display:block;
+	height:44px;
+	line-height:44px;
+	color:#e5f1fc;
+	font-size:12px;
+	text-indent:60px;
+}
+
+.sub_menu a{
+	text-indent:80px;
+}
+
+
+.pannel img{
+	display:block;
+	width:90%;
+	margin:20px auto 0;
+}
+
+
+.spannel em,.spannel2 em{
+	font-size:50px;
+	line-height:50px;
+	display:inline-block;
+	margin:10px 0 0 20px;
+	font-family:'Arial';
+	color:rgba(255,255,255,0.8);
+}
+
+.spannel span,.spannel2 span{
+	font-size:14px;
+	display:inline-block;
+	color:rgba(255,255,255,0.8);
+	margin-left:10px;
+}
+
+.spannel b,.spannel2 b{
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	line-height:24px;
+	background:rgba(0,0,0,0.1);
+	color:#fff;
+	font-size:14px;
+	font-weight:normal;
+}
+
+
+.login_bg{
+	position:fixed;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	z-index:-9999;
+	/*background:url(../images/login-bg.jpg) no-repeat;*/
+}
+
+.login_form{
+  width:330px;
+  height:292px;
+  background:#fff;
+  position:fixed;
+  left:50%;
+  top:50%;
+  margin-top:-146px;
+  margin-left:-165px;
+  overflow:hidden;
+  border-radius:6px;
+}
+
+.login_form .error_tip{
+	position:absolute;
+	font-size:12px;
+	color:#f00;
+	bottom:84px;
+	left:18px;
+	display:none;
+}
+
+
+.login_title{
+  line-height:72px;
+  text-align:center;
+  background:#1ab394;
+  color:#fff;
+  font-size:20px;
+}
+
+.input_txt{
+  display:block;
+  margin:20px auto 0;
+  width:298px;
+  height:32px;
+  border:1px solid #d0d0d0;
+  border-radius:4px;
+  outline:none;
+  text-indent:10px;
+}
+
+
+.input_sub{
+  display:block;
+  margin:40px auto 0;
+  width:298px;
+  height:32px;
+  border:0px;
+  border-radius:4px;
+  background:#1ab394;
+  color:#fff;
+  cursor:pointer;
+}
+
+.input_sub:hover{
+  opacity:0.8;
+}
+
+
+.common_table th,.common_table td{
+	border:1px solid #d1d1d1;
+	text-align:center;
+	padding:13px 0px;
+	font-size:12px;
+}
+
+
+.pagenation li{
+    display:inline-block;
+    height:26px;
+    font-size:12px;
+    margin:7px 5px 0px;
+}
+
+.pagenation  a{
+    line-height:26px;
+    text-decoration:none;
+    color:#393c35;
+    display:block;
+    padding:0px 10px;
+    border:1px solid #d1d1d1;
+}
+
+.pagenation a:hover{
+    background:#f80;
+    color:#fff;
+}
+
+
+.form_group label{
+	float:left;
+	width:12%;
+	line-height:30px;
+	text-align:right;
+	font-size:14px;
+}
+
+
+.pop h3{
+	background:#25c192;
+	line-height:40px;
+	margin:2px;
+	color:#fff;
+	text-indent:10px;
+}
+
+
+.form_group .error_tip{
+	position:absolute;
+	left:141px;
+	top:132px;
+	color:#f00;
+	font-size:12px;
+	display:none;
+}
+
+
+.news_filter_form .input_txt{
+	float:left;
+	margin:0px;
+	width:298px;
+	height:26px;
+	border:1px solid #d0d0d0;
+	border-radius:4px;
+	outline:none;
+	text-indent:10px;
+  }
+
+  .news_filter_form .input_sub{
+	float:left;
+	margin:0px;
+	margin-left:15px;
+	width:100px;
+	height:28px;
+	border:0px;
+	border-radius:4px;
+	background:#1ab394;
+	color:#fff;
+	cursor:pointer;
+  }
+		</style>
+
+</head>
+<body>
+	<div class="login_logo">
+	</div>
+	<form method="post" class="login_form">
+		<h1 class="login_title">用户登录</h1>
+		<input type="text" name="username" placeholder="用户名" class="input_txt">
+		<input type="password" name="password" placeholder="密码" class="input_txt">
+        {% if errmsg %}
+		    <div class="error_tip" style="display: block">{{ errmsg }}</div>
+        {% endif %}
+
+		<input type="submit" value="登 录" class="input_sub">
+	</form>
+	<div class="login_bg"></div>
+</body>
+</html>
