@@ -10,6 +10,11 @@ pip install BeautifulReport==0.1.3
 
 pip install flask==1.1.2
 
+pip install PyYAML==5.4.1
+
+pip install ddt==1.4.2
+
+pip install jsonpath==0.82
 # 2.项目目录结构
 
 - Base  存放公共文件 基础文件
@@ -29,9 +34,6 @@ pip install flask==1.1.2
     - ```
       get_parameter  在每个case上添加该装饰器  作用: 异常捕获 自动生成报告
       ```
-
-    - 
-
 - Entrance  在线服务器入口
 
   - static  静态服务器资源
@@ -73,6 +75,7 @@ pip install flask==1.1.2
 # 4. 版本历史
 
 ## 1.0 版本
+实现移动端自动化 让功能测试人员 通过airtestIDE录制脚本，然后移植到项目内，就能让功能测试人员也参与到移动端自动化的过程
 
 实现一个报告平台 用来在线展示代码中运行好的case报告
 
