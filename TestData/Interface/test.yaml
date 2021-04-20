@@ -1,0 +1,100 @@
+- name: test_get_date
+  class: TestOther
+  desc: 获取当前日期和时间
+  request:
+    url: 'http://poetry.apiopen.top/getTime'
+    method: get
+  checking:
+    type: json
+    assert:
+      eq:
+        $.code: 200
+        $.message: 成功!
+        $.result.weekday: 星期二
+      in:
+        $.result.weekday: 星期
+- name: test_admin_login
+  class: TestLogin
+  desc: 使用管理员用户登录
+  request:
+    url: 'http://139.196.163.35:8081/manager/Account/Login'
+    method: post
+    data:
+      username: Admin
+      password: admin123
+  checking:
+    type: json
+    assert:
+      eq:
+        $.code: 200
+        $.success: true
+  variable:
+    token: $.data.token
+- name: test_delete_gold_1
+  class: TestGold
+  desc: 删除黄金信息
+  request:
+    url: 'http://139.196.163.35:8081/moon/ProductGold/deleteById'
+    method: get
+    params:
+      id: 1
+    headers:
+      token: $token
+  checking:
+    type: json
+    assert:
+      eq:
+        $.code: 200
+        $.success: true
+- name: test_delete_gold_2
+  class: TestGold
+  desc: 删除黄金信息
+  request:
+    url: 'http://139.196.163.35:8081/moon/ProductGold/deleteById'
+    method: get
+    params:
+      id: -1
+    headers:
+      token: $token
+  checking:
+    type: json
+    assert:
+      eq:
+        $.code: 999
+        $.success: true
+- name: test_woniu_login
+  class: TestWoniu
+  desc: 测试蜗牛登陆
+  request:
+    url: 'http://localhost:8080/WoniuSales-20180508-V1.4-bin/user/login'
+    method: post
+    data:
+      username: admin
+      password: '123456'
+      verifycode: '0000'
+  checking:
+    type: text
+    assert:
+      eq: login-pass
+      in: login
+  variable:
+    cookie: response.cookies
+- name: add_woniu_vip
+  class: TestWoniu
+  desc: 测试蜗牛会员新增
+  request:
+    url: 'http://localhost:8080/WoniuSales-20180508-V1.4-bin/customer/add'
+    method: post
+    data:
+      customername: zs
+      customerphone: '123456789'
+      childsex: 男
+      childdate: '2020-12-12'
+      creditkids: '500'
+      creditcloth: '2800'
+    cookies: $cookie
+  checking:
+    type: text
+    assert:
+      eq: already-added
+      in: added

@@ -16,9 +16,12 @@ ReportDIR =  os.path.join(StaticDIR,"Report\\")
 LogsDIR = os.path.join(StaticDIR,"Logs\\")
 PictureDIR = os.path.join(StaticDIR,"Picture\\")
 AirResource = os.path.join(StaticDIR,"AirResource\\")
+TestDataDIR = os.path.join(BaseDIR,"TestData\\")
+
 # 手机的设备连接信息
 RealMe = "android://127.0.0.1:5037/954f932f?cap_method=JAVACAP&&ori_method=ADBORI&&touch_method=ADBTOUCH"
 MuMu = "android://127.0.0.1:5037/127.0.0.1:7555?cap_method=JAVACAP&&ori_method=ADBORI&&touch_method=ADBTOUCH"
+InterFaceData = os.path.join(TestDataDIR,"Interface\\")
 
 
 

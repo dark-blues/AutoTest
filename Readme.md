@@ -83,9 +83,81 @@ pip install flask==1.1.2
 ## 1.2 版本
 
  实现单例 避免 写了多个文件重复启动app 浪费时间
- 
+
+## 2.0 版本
+新增接口自动化框架 支持yaml格式或者json格式编写接口自动化测试用例
+用户不需要关注代码逻辑，只要按要求编写json文件或者yaml文件，让不会代码的人也能参与到自动化测试中
+
+TestCase目录下新建TestInterface.py文件 该文件就是用来解析接口文档的数据，然后发送请求解析
+对于用户来说 只需要修改自己把test.json换成自己的接口文档就可以了
+![image-20210420102107352](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210420102107.png)
+提供test.json和test.yaml作为模板
+接口文件编写规则：
+- name表示测试的函数名称 用于后期报告上显示
+
+- class表示测试的接口类别 用于后期报告作过滤
+
+- desc 表示case的描述信息 用于报告显示
+
+- request 表示这个接口 的请求构成
+    
+    - url 填写接口的请求地址
+    - method 填写接口的请求方式 忽略大小写
+    - data 接口的表单数据  
+    - headers 接口请求头部信息数据
+    - params 接口查询字符串信息数据
+    - 如果中间要涉及到前置接口产生的结果 使用 $变量名表示 
+    - 整个流程可以让测试人员用postman测完，然后把这个接口转成json信息或yaml信息即可
+    
+- variable 接口流程结束 需要保存的变量 方便后面的接口调用使用
+
+    - 以键值对形式保存数据 键表示变量名 值的话支持对json返回的数据解析，支持纯变量赋值，支持对response响应的内容获取数据
+    - 支持对当前json数据解析 使用 $.表示返回的json数据，支持.语法  内置其实采用的jsonpath解析。$.data.token表示返回内容下的data数据下的token值  可参考文档 https://blog.csdn.net/nd211314555/article/details/88426529
+    - 支持对response解析获取 如response.cookies获取响应的cookie。response.text获取响应的文本内容
+    - 如果要使用常量 就直接 写即可
+
+- checking 用来做断言的
+
+    - type 目前支持对 json,text,html 内容作断言，根据响应内容的不同自己选择不同类型
+
+    - assert表示断言，支持两种eq和in。 eq表示判断值是否相等，in表示判断值是否存在
+
+    - json的话以及支持jsonpath语法 
+
+        ```python
+        "assert": {
+            "eq": {
+                "$.code": 200,
+                "$.message": "成功!",
+                "$.result.weekday": "星期二"
+            },
+            "in": {
+                "$.result.weekday": "星期"
+            }
+        # 表示 返回的响应内容的 code =200，message为成功!，result下的weekday 为星期二 
+        ```
+
+    - text/html 直接就是判断文本内容
+
+        ```python
+        "assert": {
+          "eq": "already-added",
+          "in":  "added"
+          }
+         # 表示响应的文本内容 等于already-added 存在added
+        ```
+
+
+
+
+
+
+
  ## 如果您觉得这个产品对您有用，您可以捐助下我，让我有理由继续下去，非常感谢。
- ![image-20210416142640447](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210416142640.png)
- ![image-20210416142702965](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210416142703.png)
- 
+
+![image-20210416143755979](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210416143756.png)
+![image-20210416143919108](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210416143919.png)
+
  ## 当然你也可以关注加星支持 非常感谢！！！
+
+你也可以添加QQ：1576094876 进行技术探讨 需求更新

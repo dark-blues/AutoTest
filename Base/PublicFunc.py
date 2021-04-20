@@ -6,13 +6,15 @@
 @desc: 
 @Created on: 2021/1/8 14:16
 """
-
+import json
 import logging
 import smtplib
 from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from functools import wraps
+
+import yaml
 from airtest.cli.parser import cli_setup
 from airtest.core.api import *
 import unittest
@@ -145,3 +147,27 @@ def send_email(email_Subject="测试报告结果",  received_Email=["1576094876@
     smtp.sendmail(userName_SendEmail, ",".join(received_Email), msg.as_string())
     smtp.quit()
 
+class OptionsException(Exception):
+    '''自定义的异常类'''
+    def __init__(self, info):
+        self.info = info
+
+    def __str__(self):
+        return f"{self.info}"
+
+class InterfaceVariable:
+    # 接口自动化过程中要来存储 具有相关连性接口的数据
+    # 千万别给我删了
+    pass
+
+def get_interface_data(filename:str):
+    if filename.endswith(".json"):
+        with open(filename,"r",encoding='utf-8') as f:
+            data = json.load(f)
+    elif filename.endswith(".yaml"):
+        with open(filename, "r",encoding='utf-8') as f:
+            data = yaml.load(f, Loader=yaml.FullLoader)
+    return data
+
+if __name__ == '__main__':
+    get_interface_data("a.json")
