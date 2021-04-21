@@ -47,7 +47,6 @@
         $.code: 200
         $.success: true
 - name: test_delete_gold_2
-  class: TestGold
   desc: 删除黄金信息
   request:
     url: 'http://139.196.163.35:8081/moon/ProductGold/deleteById'

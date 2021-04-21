@@ -6,7 +6,7 @@
 @desc: 
 @Created on: 2021/4/19 15:45
 """
-
+import time
 import unittest
 import ddt
 import requests
@@ -19,13 +19,14 @@ from Base.PublicFunc import get_interface_data, OptionsException, InterfaceVaria
 @ddt.ddt
 class TestInterface(unittest.TestCase):
 
-    @ddt.data(*get_interface_data(InterFaceData+"test.json"))
+    @ddt.data(*get_interface_data())
     def test_all_interface(self,case_detail):
-        # 组织报告上要显示的数据
-        self.__class__.__qualname__ =case_detail['class']
-        self.__dict__['_testMethodName'] = case_detail['name']
-        self.__dict__['_testMethodDoc'] = case_detail['desc']
 
+        # 组织报告上要显示的数据
+        self.__class__.__qualname__ =case_detail.get('class',"class undefined")
+        self.__dict__['_testMethodName'] = case_detail.get('name','func undefined')
+        self.__dict__['_testMethodDoc'] = case_detail.get('desc',"desc undefined")
+        self.__dict__['_start_time'] = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         # 获取测试case中的请求部分信息
         request_data = case_detail['request']
 
@@ -47,7 +48,7 @@ class TestInterface(unittest.TestCase):
                     request_data[item]=getattr(InterfaceVariable,request_data[item][1:])
 
         # 发送请求
-        print(request_data)
+
         res = requests.request(**request_data)
 
         # 查看是否有要保存的 接口关联性数据
@@ -55,7 +56,11 @@ class TestInterface(unittest.TestCase):
             # 获取要保存的数据 先检查文档是否已经存入数据：
             for item,values in case_detail['variable'].items():
                 if values.startswith("$."):
-                    setattr(InterfaceVariable,item,jsonpath(res.json(),values)[0])
+                    v = jsonpath(res.json(), values)   # jsonpath 获取结果默认列表返回
+                    if len(v) == 1:
+                        setattr(InterfaceVariable,item,v[0])
+                    else:
+                        setattr(InterfaceVariable, item, v)
                 elif values.startswith("response."):
                     # 获取响应内容的数据
                     a= getattr(res, values.split(".")[1])
@@ -71,10 +76,18 @@ class TestInterface(unittest.TestCase):
             for i, v in checking_info['assert'].items():
                 if i == "eq":
                     for i2, v2 in v.items():
-                        self.assertEqual(v2, jsonpath(res.json(), i2)[0])
+                        v = jsonpath(res.json(), i2)
+                        if len(v)==1:
+                            self.assertEqual(v2, v[0])
+                        else:
+                            self.assertIn(v2, v)
                 elif i == "in":
                     for i2, v2 in v.items():
-                        self.assertIn(v2, jsonpath(res.json(), i2)[0])
+                        v = jsonpath(res.json(), i2)
+                        if len(v)==1:
+                            self.assertIn(v2,v[0])
+                        else:
+                            self.assertIn(v2, v)
                 else:
                     raise OptionsException("checking里面的 assert目前只支持in 和eq，请按规则写入")
 

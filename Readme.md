@@ -150,13 +150,23 @@ TestCase目录下新建TestInterface.py文件 该文件就是用来解析接口�
           }
          # 表示响应的文本内容 等于already-added 存在added
         ```
+## 2.1 版本
+修改如果jsonpath获取的数据是个列表 也只会拿到第一个数据的bug
 
+## 2.2 版本
+1. 支持对多个接口文档的执行
+![image-20210421131944754](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210421131944.png)
+get_interface_data()函数不传参数 则读取TestData目录下Interface文件下所有的以'test'(忽略大小写)开头的接口文档数据并执行
 
+2. 支持同时传入多个文件，如果你想只执行多个接口文档 可以 get_interface_data(["test.json","test.yaml"]) 传入列表，列表的元素就是interface的文件名
 
+3. 接口文档编写 时 class可以不填 默认以文件名的驼峰写法作为类名。如test_gold.json的类名就是TestGold
 
+目的：以上更新的目的是 实际中一个项目可能有多个测试人员负责，一个测试人员负责一个模块，那么这个测试人员只要写自己的接口文档并放到Interface目录下即可。每个测试人员不需要共用一个接口文件了。
+默认运行Interface目录下所有test开头的接口文档。可以人为指定执行具体某些文档，更加人性化
 
-
-
+## 2.3 版本
+修复 开始时间是跳过的bug
  ## 如果您觉得这个产品对您有用，您可以捐助下我，让我有理由继续下去，非常感谢。
 
 

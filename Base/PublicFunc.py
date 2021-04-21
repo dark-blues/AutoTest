@@ -19,7 +19,7 @@ from airtest.cli.parser import cli_setup
 from airtest.core.api import *
 import unittest
 from Base.Airtestlib import only_set_logdir, only_auto_setup, DIYsimple_report
-from Base.BaseSettings import LogsDIR, ReportDIR, ipport, ipport_Report_DIR, cloudmusic, RealMe
+from Base.BaseSettings import LogsDIR, ReportDIR, ipport, ipport_Report_DIR, cloudmusic, RealMe, InterFaceData
 
 
 def get_parameter(file,logname,**dkwargs):
@@ -160,14 +160,49 @@ class InterfaceVariable:
     # 千万别给我删了
     pass
 
-def get_interface_data(filename:str):
-    if filename.endswith(".json"):
-        with open(filename,"r",encoding='utf-8') as f:
-            data = json.load(f)
-    elif filename.endswith(".yaml"):
-        with open(filename, "r",encoding='utf-8') as f:
-            data = yaml.load(f, Loader=yaml.FullLoader)
-    return data
+def filename_to_hump(filename):
+    """
+    将文件名转换成驼峰写法
+    filename: 文件路径
+    """
+    basefile = os.path.basename(filename).lower() # 只获取文件名的小写
+    fileprefix = basefile[:basefile.rfind(".")] # 获取文件前缀
+    if len(fileprefix.split("_"))==1: # 说明名称内没有_
+        filename = "Test"+fileprefix[4:].capitalize()
+    else:
+        filename = "".join([i.capitalize() for i in fileprefix.split("_")])
+
+    return filename
+
+
+def get_interface_data(filenamelist:list=None):
+    # 获取所有符合条件的文件
+    if filenamelist:
+        filenamelist = [InterFaceData+filename for filename in filenamelist]
+    else:
+        filenamelist = os.listdir(InterFaceData)
+        filenamelist = [InterFaceData + filename for filename in filenamelist if filename.lower().startswith("test")]
+
+    all_data = []
+    for filename in filenamelist:
+        # 获取文件的驼峰写法 用于给里面的数据进行 类名赋值
+        class_name =  filename_to_hump(filename)
+
+        if filename.endswith(".json"):
+            with open(filename,"r",encoding='utf-8') as f:
+                data = json.load(f)
+
+        elif filename.endswith(".yaml"):
+            with open(filename, "r",encoding='utf-8') as f:
+                data = yaml.load(f, Loader=yaml.FullLoader)
+        for i in data:
+            if not i.get("class"):
+                i["class"] =class_name
+        all_data += data
+
+    return all_data
 
 if __name__ == '__main__':
-    get_interface_data("a.json")
+    get_interface_data()
+    #
+    # filename_to_hump(r"D:\Pycharm\AutoTest\TestData\Interface\test_Gold_add.json")

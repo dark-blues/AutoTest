@@ -23,6 +23,53 @@
   },
 
   {
+    "name": "test_get_news",
+    "class": "TestOther",
+    "desc": "获取网易新闻",
+    "request": {
+      "url": "https://api.apiopen.top/getWangYiNews",
+      "method": "post",
+      "data" : {
+        "page": 1,
+        "count": 10
+      }
+    },
+    "checking": {
+      "type": "json",
+      "assert": {
+        "eq": {
+          "$.code": 200,
+          "$.message": "成功!"
+        }
+      }
+    }
+  },
+  {
+    "name": "test_userFeedback",
+    "class": "TestOther",
+    "desc": "测试用户反馈",
+    "request": {
+      "url": "https://api.apiopen.top/userFeedback",
+      "method": "post",
+      "data" : {
+        "apikey": "9648872f9aa08da137ce45fe1dda8279",
+        "text": "我觉得应该再增加个版本",
+        "email": "157@qq.com"
+      }
+    },
+    "checking": {
+      "type": "json",
+      "assert": {
+        "eq": {
+          "$.code": 400
+        },
+        "in": {
+          "$.message": "反馈失败"
+        }
+      }
+    }
+  },
+  {
     "name": "test_admin_login",
     "class": "TestLogin",
     "desc": "使用管理员用户登录",

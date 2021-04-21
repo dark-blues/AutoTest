@@ -7161,18 +7161,50 @@ body.skin-3 {
 
 
     var resultData = {
-    "testPass": 5,
+    "testPass": 10,
     "testResult": [
         {
             "className": "TestOther",
             "methodName": "test_get_date",
             "description": "获取当前日期和时间",
             "html_path": "#",
-            "start_time": "跳过",
-            "spendTime": "0.109 s",
+            "start_time": "2021-04-21 14:23:19",
+            "spendTime": "1.07 s",
+            "status": "失败",
+            "log": [
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\Pycharm\\PythonProject\\venv\\AutoTest\\lib\\site-packages\\ddt.py\", line 182, in wrapper\n    return func(self, *args, **kwargs)\n",
+                "  File \"D:\\Pycharm\\AutoTest\\TestCase\\TestInterface.py\", line 81, in test_all_interface\n    self.assertEqual(v2, v[0])\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 829, in assertEqual\n    assertion_func(first, second, msg=msg)\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 1203, in assertMultiLineEqual\n    self.fail(self._formatMessage(msg, standardMsg))\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 670, in fail\n    raise self.failureException(msg)\n",
+                "AssertionError: '星期二' != '星期三'\n- 星期二\n?   ^\n+ 星期三\n?   ^\n\n"
+            ]
+        },
+        {
+            "className": "TestOther",
+            "methodName": "test_get_news",
+            "description": "获取网易新闻",
+            "html_path": "#",
+            "start_time": "2021-04-21 14:23:20",
+            "spendTime": "1.49 s",
             "status": "成功",
             "log": [
-                "{'url': 'http://poetry.apiopen.top/getTime', 'method': 'get'}",
+                ""
+            ]
+        },
+        {
+            "className": "TestOther",
+            "methodName": "test_userFeedback",
+            "description": "测试用户反馈",
+            "html_path": "#",
+            "start_time": "2021-04-21 14:23:22",
+            "spendTime": "1.11 s",
+            "status": "成功",
+            "log": [
                 ""
             ]
         },
@@ -7181,11 +7213,10 @@ body.skin-3 {
             "methodName": "test_admin_login",
             "description": "使用管理员用户登录",
             "html_path": "#",
-            "start_time": "跳过",
-            "spendTime": "0.0789 s",
+            "start_time": "2021-04-21 14:23:23",
+            "spendTime": "1.04 s",
             "status": "成功",
             "log": [
-                "{'url': 'http://139.196.163.35:8081/manager/Account/Login', 'method': 'post', 'data': {'username': 'Admin', 'password': 'admin123'}}",
                 ""
             ]
         },
@@ -7194,11 +7225,10 @@ body.skin-3 {
             "methodName": "test_delete_gold_1",
             "description": "删除黄金信息",
             "html_path": "#",
-            "start_time": "跳过",
-            "spendTime": "0.0491 s",
+            "start_time": "2021-04-21 14:23:24",
+            "spendTime": "1.05 s",
             "status": "成功",
             "log": [
-                "{'url': 'http://139.196.163.35:8081/moon/ProductGold/deleteById', 'method': 'get', 'params': {'id': 1}, 'headers': {'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTg4OTUxMzc2NzksInBheWxvYWQiOiJcIkFkbWluXCIifQ.RhsU6XYdq5JG3MGbc6tp115P_Gwj0Avv924_aobxa1w'}}",
                 ""
             ]
         },
@@ -7207,16 +7237,16 @@ body.skin-3 {
             "methodName": "test_delete_gold_2",
             "description": "删除黄金信息",
             "html_path": "#",
-            "start_time": "跳过",
-            "spendTime": "0.0433 s",
+            "start_time": "2021-04-21 14:23:25",
+            "spendTime": "1.19 s",
             "status": "失败",
             "log": [
-                "{'url': 'http://139.196.163.35:8081/moon/ProductGold/deleteById', 'method': 'get', 'params': {'id': -1}, 'headers': {'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTg4OTUxMzc2NzksInBheWxvYWQiOiJcIkFkbWluXCIifQ.RhsU6XYdq5JG3MGbc6tp115P_Gwj0Avv924_aobxa1w'}}\n",
+                "",
                 "Traceback (most recent call last):\n",
                 "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
                 "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
                 "  File \"D:\\Pycharm\\PythonProject\\venv\\AutoTest\\lib\\site-packages\\ddt.py\", line 182, in wrapper\n    return func(self, *args, **kwargs)\n",
-                "  File \"D:\\Pycharm\\AutoTest\\TestCase\\TestInterface.py\", line 74, in test_all_interface\n    self.assertEqual(v2, jsonpath(res.json(), i2)[0])\n",
+                "  File \"D:\\Pycharm\\AutoTest\\TestCase\\TestInterface.py\", line 81, in test_all_interface\n    self.assertEqual(v2, v[0])\n",
                 "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 829, in assertEqual\n    assertion_func(first, second, msg=msg)\n",
                 "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 822, in _baseAssertEqual\n    raise self.failureException(msg)\n",
                 "AssertionError: True != False\n"
@@ -7227,11 +7257,10 @@ body.skin-3 {
             "methodName": "test_woniu_login",
             "description": "测试蜗牛登陆",
             "html_path": "#",
-            "start_time": "跳过",
-            "spendTime": "0.00598 s",
+            "start_time": "2021-04-21 14:23:26",
+            "spendTime": "1.02 s",
             "status": "成功",
             "log": [
-                "{'url': 'http://localhost:8080/WoniuSales-20180508-V1.4-bin/user/login', 'method': 'post', 'data': {'username': 'admin', 'password': '123456', 'verifycode': '0000'}}",
                 ""
             ]
         },
@@ -7240,20 +7269,108 @@ body.skin-3 {
             "methodName": "add_woniu_vip",
             "description": "测试蜗牛会员新增",
             "html_path": "#",
-            "start_time": "跳过",
-            "spendTime": "0.00499 s",
+            "start_time": "2021-04-21 14:23:27",
+            "spendTime": "1.01 s",
             "status": "成功",
             "log": [
-                "{'url': 'http://localhost:8080/WoniuSales-20180508-V1.4-bin/customer/add', 'method': 'post', 'data': {'customername': 'zs', 'customerphone': '123456789', 'childsex': '男', 'childdate': '2020-12-12', 'creditkids': '500', 'creditcloth': '2800'}, 'cookies': <RequestsCookieJar[Cookie(version=0, name='password', value='123456', port=None, port_specified=False, domain='localhost.local', domain_specified=False, domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=1627525138, discard=False, comment=None, comment_url=None, rest={}, rfc2109=False), Cookie(version=0, name='username', value='admin', port=None, port_specified=False, domain='localhost.local', domain_specified=False, domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=1627525138, discard=False, comment=None, comment_url=None, rest={}, rfc2109=False), Cookie(version=0, name='JSESSIONID', value='C2606D7B3F9E5384D065C9FEF02CA80B', port=None, port_specified=False, domain='localhost.local', domain_specified=False, domain_initial_dot=False, path='/WoniuSales-20180508-V1.4-bin', path_specified=True, secure=False, expires=None, discard=True, comment=None, comment_url=None, rest={'HttpOnly': None}, rfc2109=False)]>}",
+                ""
+            ]
+        },
+        {
+            "className": "TestOther",
+            "methodName": "test_get_date",
+            "description": "获取当前日期和时间",
+            "html_path": "#",
+            "start_time": "2021-04-21 14:23:28",
+            "spendTime": "1.11 s",
+            "status": "失败",
+            "log": [
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\Pycharm\\PythonProject\\venv\\AutoTest\\lib\\site-packages\\ddt.py\", line 182, in wrapper\n    return func(self, *args, **kwargs)\n",
+                "  File \"D:\\Pycharm\\AutoTest\\TestCase\\TestInterface.py\", line 81, in test_all_interface\n    self.assertEqual(v2, v[0])\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 829, in assertEqual\n    assertion_func(first, second, msg=msg)\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 1203, in assertMultiLineEqual\n    self.fail(self._formatMessage(msg, standardMsg))\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 670, in fail\n    raise self.failureException(msg)\n",
+                "AssertionError: '星期二' != '星期三'\n- 星期二\n?   ^\n+ 星期三\n?   ^\n\n"
+            ]
+        },
+        {
+            "className": "TestLogin",
+            "methodName": "test_admin_login",
+            "description": "使用管理员用户登录",
+            "html_path": "#",
+            "start_time": "2021-04-21 14:23:29",
+            "spendTime": "1.04 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "TestGold",
+            "methodName": "test_delete_gold_1",
+            "description": "删除黄金信息",
+            "html_path": "#",
+            "start_time": "2021-04-21 14:23:30",
+            "spendTime": "1.05 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "Test",
+            "methodName": "test_delete_gold_2",
+            "description": "删除黄金信息",
+            "html_path": "#",
+            "start_time": "2021-04-21 14:23:31",
+            "spendTime": "1.06 s",
+            "status": "失败",
+            "log": [
+                "",
+                "Traceback (most recent call last):\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
+                "  File \"D:\\Pycharm\\PythonProject\\venv\\AutoTest\\lib\\site-packages\\ddt.py\", line 182, in wrapper\n    return func(self, *args, **kwargs)\n",
+                "  File \"D:\\Pycharm\\AutoTest\\TestCase\\TestInterface.py\", line 81, in test_all_interface\n    self.assertEqual(v2, v[0])\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 829, in assertEqual\n    assertion_func(first, second, msg=msg)\n",
+                "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 822, in _baseAssertEqual\n    raise self.failureException(msg)\n",
+                "AssertionError: True != False\n"
+            ]
+        },
+        {
+            "className": "TestWoniu",
+            "methodName": "test_woniu_login",
+            "description": "测试蜗牛登陆",
+            "html_path": "#",
+            "start_time": "2021-04-21 14:23:32",
+            "spendTime": "1.01 s",
+            "status": "成功",
+            "log": [
+                ""
+            ]
+        },
+        {
+            "className": "TestWoniu",
+            "methodName": "add_woniu_vip",
+            "description": "测试蜗牛会员新增",
+            "html_path": "#",
+            "start_time": "2021-04-21 14:23:33",
+            "spendTime": "1.01 s",
+            "status": "成功",
+            "log": [
                 ""
             ]
         }
     ],
     "testName": "测试报告",
-    "testAll": 6,
-    "testFail": 1,
-    "beginTime": "2021-04-20 10:18:57",
-    "totalTime": "1s",
+    "testAll": 14,
+    "testFail": 4,
+    "beginTime": "2021-04-21 14:23:18",
+    "totalTime": "15s",
     "testSkip": 0,
     "testError": 0
 };
