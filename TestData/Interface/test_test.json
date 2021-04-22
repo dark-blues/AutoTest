@@ -1,0 +1,47 @@
+[
+  {
+    "name": "test_get_date",
+    "class": "TestOther",
+    "desc": "获取当前日期和时间",
+    "request": {
+      "url": "http://poetry.apiopen.top/getTime",
+      "method": "get"
+    },
+    "checking": {
+      "type": "json",
+      "assert": {
+        "eq": {
+          "$.co": 200,
+          "$.message": "成功!",
+          "$.result.weekday": "星期二"
+        },
+        "in": {
+          "$.result.weekday": "星期"
+        }
+      }
+    }
+  },
+
+  {
+    "name": "test_get_news",
+    "class": "TestOther",
+    "desc": "获取网易新闻",
+    "request": {
+      "url": "https://api.apiopen.top/getWangYiNews",
+      "method": "post",
+      "data" : {
+        "page": 1,
+        "count": 10
+      }
+    },
+    "checking": {
+      "type": "json",
+      "assert": {
+        "eq": {
+          "$.code": 200,
+          "$.message": "成功!"
+        }
+      }
+    }
+  }
+]

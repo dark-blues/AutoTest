@@ -11,15 +11,13 @@ import unittest
 import ddt
 import requests
 from jsonpath import jsonpath
-
-from Base.BaseSettings import InterFaceData
 from Base.PublicFunc import get_interface_data, OptionsException, InterfaceVariable
 
 
 @ddt.ddt
 class TestInterface(unittest.TestCase):
 
-    @ddt.data(*get_interface_data())
+    @ddt.data(*get_interface_data(['test_test.json']))
     def test_all_interface(self,case_detail):
 
         # 组织报告上要显示的数据
@@ -48,7 +46,6 @@ class TestInterface(unittest.TestCase):
                     request_data[item]=getattr(InterfaceVariable,request_data[item][1:])
 
         # 发送请求
-
         res = requests.request(**request_data)
 
         # 查看是否有要保存的 接口关联性数据
@@ -57,6 +54,9 @@ class TestInterface(unittest.TestCase):
             for item,values in case_detail['variable'].items():
                 if values.startswith("$."):
                     v = jsonpath(res.json(), values)   # jsonpath 获取结果默认列表返回
+                    if v is False:
+                        info = f"接口返回的数据内容是: {res.json()}  无法根据你定义的规则  {values} 查找到内容 "
+                        raise OptionsException(info)
                     if len(v) == 1:
                         setattr(InterfaceVariable,item,v[0])
                     else:
@@ -77,6 +77,8 @@ class TestInterface(unittest.TestCase):
                 if i == "eq":
                     for i2, v2 in v.items():
                         v = jsonpath(res.json(), i2)
+                        if v is False:
+                            raise OptionsException(f"接口返回的数据内容是: {res.json()}  无法根据你定义的规则  {i2} 查找到内容 ")
                         if len(v)==1:
                             self.assertEqual(v2, v[0])
                         else:

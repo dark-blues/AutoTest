@@ -1,5 +1,5 @@
-- name: test_get_date
-  class: TestOther
+- name: 测试获取时间
+  class: 其他类
   desc: 获取当前日期和时间
   request:
     url: 'http://poetry.apiopen.top/getTime'
