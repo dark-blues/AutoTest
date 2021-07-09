@@ -17,7 +17,7 @@ from Base.PublicFunc import get_interface_data, OptionsException, InterfaceVaria
 @ddt.ddt
 class TestInterface(unittest.TestCase):
 
-    @ddt.data(*get_interface_data(['test_test.json']))
+    @ddt.data(*get_interface_data([]))
     def test_all_interface(self,case_detail):
 
         # 组织报告上要显示的数据
@@ -86,6 +86,8 @@ class TestInterface(unittest.TestCase):
                 elif i == "in":
                     for i2, v2 in v.items():
                         v = jsonpath(res.json(), i2)
+                        if v is False:
+                            raise OptionsException(f"接口返回的数据内容是: {res.json()}  无法根据你定义的规则  {i2} 查找到内容 ")
                         if len(v)==1:
                             self.assertIn(v2,v[0])
                         else:

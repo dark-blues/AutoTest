@@ -48,6 +48,15 @@ def login():
         else:
             return render_template("login.html",errmsg="用户名不存在")
 
+@app.route("/lovefei",methods=["GET","POST"])
+def show():
+    return app.send_static_file('aaa.html')
+
+@app.route("/love",methods=["GET","POST"])
+def showss():
+    return app.send_static_file('bbb.html')
+
+
 @app.route("/favicon.ico")
 def getfavicon():
     return app.send_static_file("timg.jpg")

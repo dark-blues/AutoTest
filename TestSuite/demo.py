@@ -9,16 +9,8 @@
 import unittest
 from Base.BaseSettings import StaticDIR
 from Base.Beautifullib import DIYBeautifulReport
-from TestCase import TestFind, TestFinds, TestInterface
-
-suite=unittest.TestSuite()
-TestCases = unittest.TestLoader().loadTestsFromModule(TestInterface)
-# TestCases1 = unittest.TestLoader().loadTestsFromModule(TestFinds)
+from TestCase import TestInterface
 
 
-suite.addTests([TestCases])
-
-
-# runner=unittest.TextTestRunner()
-runner = DIYBeautifulReport(suite)
-runner.report("测试报告","report.html",report_dir=StaticDIR)
+suite = unittest.TestLoader().loadTestsFromModule(TestInterface)
+DIYBeautifulReport(suite).report("测试报告","report.html",report_dir=StaticDIR)

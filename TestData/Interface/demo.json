@@ -1,0 +1,25 @@
+[
+  {
+    "name": "case名称",
+    "class": "case所属类 可不填  不填默认以文件名的驼峰写法作为类名。如test_gold.json的类名就是TestGold",
+    "desc": "case描述信息",
+    "request": {
+      "url": "请求地址",
+      "method": "请求方式",
+      "data" : "可选参数 表单数据",
+      "json" : "可选参数 json数据",
+      "params" : "可选参数 查询字符串参数"
+    },
+    "checking": {
+      "type": "可以是json,text,html  具体断言语法见Readme 下面提供json模板",
+      "assert": {
+        "eq": {
+          "要断言的键": "期望数据  用来判断期望数据是否等于键对应的值"
+        },
+        "in": {
+          "要断言的键": "期望数据  用来判断期望数据是否存在键对应的值内部"
+        }
+      }
+    }
+  }
+]

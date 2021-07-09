@@ -7165,20 +7165,20 @@ body.skin-3 {
     "testResult": [
         {
             "className": "TestOther",
-            "methodName": "test_get_date",
+            "methodName": "test_get_time",
             "description": "获取当前日期和时间",
             "html_path": "#",
-            "start_time": "2021-04-22 14:02:56",
-            "spendTime": "0.0683 s",
+            "start_time": "2021-07-09 15:08:21",
+            "spendTime": "0.026 s",
             "status": "错误",
             "log": [
-                "",
+                "$.date False\n",
                 "Traceback (most recent call last):\n",
                 "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 59, in testPartExecutor\n    yield\n",
                 "  File \"D:\\Python36\\lib\\unittest\\case.py\", line 605, in run\n    testMethod()\n",
                 "  File \"D:\\Pycharm\\PythonProject\\venv\\AutoTest\\lib\\site-packages\\ddt.py\", line 182, in wrapper\n    return func(self, *args, **kwargs)\n",
-                "  File \"D:\\Pycharm\\AutoTest\\TestCase\\TestInterface.py\", line 83, in test_all_interface\n    raise OptionsException(f\"接口返回的数据内容是: {res.json()}  无法根据你定义的规则  {i2} 查找到内容 \")\n",
-                "Base.PublicFunc.OptionsException: 接口返回的数据内容是: {'code': 200, 'message': '成功!', 'result': {'date': '2021-04-22', 'time': '14:02:56', 'weekday': '星期四', 'dateTime': '2021-04-22 14:02:56'}}  无法根据你定义的规则  $.co 查找到内容 \n"
+                "  File \"D:\\Pycharm\\AutoTest\\TestCase\\TestInterface.py\", line 91, in test_all_interface\n    raise OptionsException(f\"接口返回的数据内容是: {res.json()}  无法根据你定义的规则  {i2} 查找到内容 \")\n",
+                "Base.PublicFunc.OptionsException: 接口返回的数据内容是: {'code': 200, 'message': '成功!', 'result': {'date': '2021-07-09', 'time': '15:08:21', 'weekday': '星期五', 'dateTime': '2021-07-09 15:08:21'}}  无法根据你定义的规则  $.date 查找到内容 \n"
             ]
         },
         {
@@ -7186,8 +7186,8 @@ body.skin-3 {
             "methodName": "test_get_news",
             "description": "获取网易新闻",
             "html_path": "#",
-            "start_time": "2021-04-22 14:02:56",
-            "spendTime": "0.363 s",
+            "start_time": "2021-07-09 15:08:22",
+            "spendTime": "0.418 s",
             "status": "成功",
             "log": [
                 ""
@@ -7197,8 +7197,8 @@ body.skin-3 {
     "testName": "测试报告",
     "testAll": 2,
     "testFail": 1,
-    "beginTime": "2021-04-22 14:02:56",
-    "totalTime": "0s",
+    "beginTime": "2021-07-09 15:08:21",
+    "totalTime": "1s",
     "testSkip": 0,
     "testError": 0
 };

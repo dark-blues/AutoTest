@@ -172,7 +172,10 @@ get_interface_data()函数不传参数 则读取TestData目录下Interface文件
 对于响应是json数据时，会有测试人员获取数据里面内容的json语法写的不对 如$.code是获取响应内的code 但是响应如果用status表示,没有code那这样获取就会报错
 其实就是测试人员的粗心所致，所以添加该功能，如果出现这种错误，会在报告上有详细信息显示
 
-## 如果您觉得这个产品对您有用，您可以捐助下我，让我有理由继续下去，非常感谢。
+## 2.5 版本
+修改 当条件为in时 如果jsonpath写错 也可以在报告上有详细信息显示
+
+## 如果您觉得这个产品对您有用，您可以打赏下我，让我有理由继续下去，非常感谢。
 ![image-20210416143755979](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210416143756.png)
 ![image-20210416143919108](https://woniumd.oss-cn-hangzhou.aliyuncs.com/test/zhangjing/20210416143919.png)
 
