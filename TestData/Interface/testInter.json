@@ -1,6 +1,6 @@
 [
   {
-    "name": "test_get_date",
+    "name": "test_get_time",
     "class": "TestOther",
     "desc": "获取当前日期和时间",
     "request": {
@@ -11,35 +11,32 @@
       "type": "json",
       "assert": {
         "eq": {
-          "$.co": 200,
-          "$.message": "成功!",
-          "$.result.weekday": "星期二"
+          "$.result.weekday": "星期五"
         },
         "in": {
-          "$.result.weekday": "星期"
+          "$.date": "2021-07"
         }
       }
     }
   },
-
-  {
+    {
     "name": "test_get_news",
     "class": "TestOther",
     "desc": "获取网易新闻",
     "request": {
       "url": "https://api.apiopen.top/getWangYiNews",
-      "method": "post",
-      "data" : {
+      "method": "Post",
+      "data": {
         "page": 1,
-        "count": 10
+        "count": 5
       }
     },
     "checking": {
       "type": "json",
       "assert": {
         "eq": {
-          "$.code": 200,
-          "$.message": "成功!"
+          "$.message": "成功!",
+          "code": 200
         }
       }
     }

@@ -3,3 +3,4 @@ Test
 .gitignore
 Entrance/static/Logs
 Entrance/static/Report
+.*.pyc
